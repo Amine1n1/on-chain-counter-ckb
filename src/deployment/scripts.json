@@ -1,0 +1,37 @@
+{
+  "devnet": {
+    "counter.bc": {
+      "codeHash": "0xa6db906f124372a0a5249165be98bfcafe8956e6c1dbf95695bf0266cab87f56",
+      "hashType": "data1",
+      "cellDeps": [
+        {
+          "cellDep": {
+            "outPoint": {
+              "txHash": "0x4992b1af4f948c8a770aeea01a26b2e0eb4b37903797ff26ba53913f1648a0c9",
+              "index": 0
+            },
+            "depType": "code"
+          }
+        }
+      ]
+    }
+  },
+  "testnet": {
+    "counter.bc": {
+      "codeHash": "0x7d8f3436c3bde3b8e1a1aac0615d77b49911b9c931f694539a00cae82270c9c1",
+      "hashType": "data1",
+      "cellDeps": [
+        {
+          "cellDep": {
+            "outPoint": {
+              "txHash": "0x95dbdc955f856d7a7e12c4801a0de198323ded61b9c06285fadeb788ab1d33e7",
+              "index": 0
+            },
+            "depType": "code"
+          }
+        }
+      ]
+    }
+  },
+  "mainnet": {}
+}

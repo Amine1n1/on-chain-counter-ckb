@@ -1,0 +1,34 @@
+{
+  "name": "ccc-ckb-demo",
+  "private": true,
+  "homepage": "https://Amine1n1.github.io/on-chain-counter-ckb",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@ckb-ccc/connector-react": "^1.0.34",
+    "@ckb-ccc/core": "^1.12.5",
+    "@nervosnetwork/ckb-sdk-core": "^0.109.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.5.0",
+    "vite": "^7.2.4"
+  }
+}
