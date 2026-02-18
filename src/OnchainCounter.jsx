@@ -7,7 +7,10 @@ export default function ShowCounter() {
   const ckb = new CKB("https://testnet.ckb.dev");
   const status = getTxStatus();
 
-  const txHashPrev = getTxHash();
+  //const txHashPrev = getTxHash();
+
+  const txHashPrev = localStorage.getItem("outpointCounter");
+
   //console.log(txHashPrev);
   const show = async () => {
   const counterCell = await ckb.rpc.getLiveCell(
@@ -24,7 +27,7 @@ export default function ShowCounter() {
 
     document.getElementById("onchainCounter").innerHTML= dataCounter;
   };
-    return <button className="GenCell" disabled={status !== "committed"} onClick={show}>show transactions on-chain-counter</button>;
+    return <button className="GenCell" disabled={status !== "committed" && status !== "rejected"} onClick={show}>show transactions on-chain-counter</button>;
   }
 
 function hexToInt(hex) {

@@ -72,9 +72,12 @@ export default function CreateGenesisCell() {
         setTxHash(txHash);
         await waitForCommit(txHash);
         setTxStatus("committed");
+        localStorage.setItem("outpointCounter", txHash);
+        localStorage.setItem("txstatus","committed");
 
     } catch (error){
       setTxStatus("rejected");
+      localStorage.setItem("txstatus","rejected");
     } 
 
   };

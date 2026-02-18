@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: 20, backgroundColor: "#00A385"}}>
+    <div style={{ padding: 20}}>
       <h2>On-Chain Counter</h2>
 
       {!wallet && (
@@ -36,9 +36,9 @@ function App() {
         </>
       )}
       <p>Receiver CKB Address</p>
-      <input type="text" id="toAddress"  style={{ width: "500px" }}/>
+      <input type="text" id="toAddress"  style={{ width: "500px" }} placeholder="type the recipient's address"/>
       <p>Amount of CKBs</p>
-      <input type="number" id="amount"/>
+      <input type="number" id="amount" placeholder="type the amount of ckb"/>
       <p><SendCKB /></p>
       <p>Transaction Status: {status}</p>
       <p><ShowCounter/></p>

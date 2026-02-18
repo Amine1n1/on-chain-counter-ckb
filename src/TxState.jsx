@@ -1,4 +1,8 @@
-let status = "idle";
+let status = localStorage.getItem("txstatus");
+if (status === null) {
+  status = "idle";
+}
+//let status = "idle";
 const listeners = new Set();
 
 export function setTxStatus(newStatus) {

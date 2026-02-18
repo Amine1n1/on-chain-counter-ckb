@@ -11,7 +11,7 @@ import "./App.css"
 export default function SendCKB() {
   const signer = ccc.useSigner();
 
-  const txHashPrev = getTxHash();
+  //const txHashPrev = getTxHash();
 
   const status = getTxStatus();
 
@@ -36,7 +36,7 @@ export default function SendCKB() {
 
     //const ckb = new CKB("http://127.0.0.1:8114");
 
-
+    const txHashPrev = localStorage.getItem("outpointCounter");
 
     const counterCell = await ckb.rpc.getLiveCell(
       {
@@ -131,9 +131,13 @@ export default function SendCKB() {
         setTxHash(txHash);
         alert("TX Hash: " + txHash);
         setTxStatus("committed");
+
+        localStorage.setItem("outpointCounter", txHash);
+        localStorage.setItem("txstatus","committed");
       
   } catch (error) {
     setTxStatus("rejected");
+    localStorage.setItem("txstatus","rejected");
   }
         //console.log(getTxStatus());
   };
