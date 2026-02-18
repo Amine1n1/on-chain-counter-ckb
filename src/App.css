@@ -42,8 +42,8 @@
 }
 
 .GenCell {
-  background-color: #4caf50; /* grün */
-  color: white;              /* Textfarbe */
+  background-color: #D7D7A8;
+  color: black;              
   border: none;
   padding: 10px 16px;
   border-radius: 6px;
@@ -51,6 +51,6 @@
 }
 
 .GenCell:hover {
-  background-color: #43a047; /* dunkler beim Hover */
+  background-color: #00493A;
 }
 

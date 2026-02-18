@@ -11,5 +11,5 @@ export default defineConfig({
       buffer: 'buffer/',
     },
   },
-  base: '/on-chain-counter-ckb'
+  base: '/on-chain-counter-ckb/'
 })

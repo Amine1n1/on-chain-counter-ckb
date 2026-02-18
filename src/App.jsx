@@ -22,11 +22,11 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Onchain Counter</h2>
+    <div style={{ padding: 20, backgroundColor: "#00A385"}}>
+      <h2>On-Chain Counter</h2>
 
       {!wallet && (
-        <button onClick={open}>Wallet verbinden</button>
+        <button onClick={open}>Connect Wallet</button>
       )}
 
       {wallet && (
@@ -36,9 +36,9 @@ function App() {
         </>
       )}
       <p>Receiver CKB Address</p>
-      <input type="text" id="toAddress" defaultValue="ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsq2prryvze6fhufxkgjx35psh7w70k3hz7c3mtl4d" style={{ width: "500px" }}/>
+      <input type="text" id="toAddress"  style={{ width: "500px" }}/>
       <p>Amount of CKBs</p>
-      <input type="number" id="amount" defaultValue={300}/>
+      <input type="number" id="amount"/>
       <p><SendCKB /></p>
       <p>Transaction Status: {status}</p>
       <p><ShowCounter/></p>

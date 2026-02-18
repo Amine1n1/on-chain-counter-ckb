@@ -24,7 +24,7 @@ export default function ShowCounter() {
 
     document.getElementById("onchainCounter").innerHTML= dataCounter;
   };
-    return <button disabled={status !== "committed"} onClick={show}>show transactions onchain-counter</button>;
+    return <button className="GenCell" disabled={status !== "committed"} onClick={show}>show transactions on-chain-counter</button>;
   }
 
 function hexToInt(hex) {
