@@ -9,7 +9,16 @@ export default function ShowCounter() {
 
   //const txHashPrev = getTxHash();
 
-  const txHashPrev = localStorage.getItem("outpointCounter");
+  const storageAvailable = isStorageAvailable();
+  let txHashPrev = "";
+
+  if (storageAvailable) {
+    txHashPrev = localStorage.getItem("outpointCounter");
+  } else {
+    txHashPrev = window.__memoryStore["outpointCounter"];
+  }
+  
+  //const txHashPrev = localStorage.getItem("outpointCounter");
 
   //console.log(txHashPrev);
   const show = async () => {
@@ -42,4 +51,15 @@ function hexToInt(hex) {
 
   // String → Number
   return parseInt(str, 10);
+}
+
+function isStorageAvailable() {
+  try {
+    const test = "__test__";
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    return true;
+  } catch {
+    return false;
+  }
 }

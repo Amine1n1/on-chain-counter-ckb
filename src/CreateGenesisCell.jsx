@@ -72,12 +72,29 @@ export default function CreateGenesisCell() {
         setTxHash(txHash);
         await waitForCommit(txHash);
         setTxStatus("committed");
-        localStorage.setItem("outpointCounter", txHash);
-        localStorage.setItem("txstatus","committed");
+
+        const storageAvailable = isStorageAvailable();
+
+        if (storageAvailable) {
+          localStorage.setItem("outpointCounter", txHash);
+          localStorage.setItem("txstatus","committed");
+        } else {
+          window.__memoryStore = window.__memoryStore || {};
+          window.__memoryStore["outpointCounter"] = txHash;
+          window.__memoryStore["txstatus"] = "committed";
+        }
+        
 
     } catch (error){
+      const storageAvailable = isStorageAvailable();
       setTxStatus("rejected");
-      localStorage.setItem("txstatus","rejected");
+      if (storageAvailable) {
+        localStorage.setItem("txstatus","rejected");
+      } else {
+        window.__memoryStore = window.__memoryStore || {};
+          window.__memoryStore["txstatus"] = "rejected";
+      }
+      
     } 
 
   };
@@ -96,5 +113,16 @@ async function waitForCommit(txHash) {
     }
 
     await new Promise(r => setTimeout(r, 3000)); // 3s warten
+  }
+}
+
+function isStorageAvailable() {
+  try {
+    const test = "__test__";
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    return true;
+  } catch {
+    return false;
   }
 }

@@ -36,7 +36,15 @@ export default function SendCKB() {
 
     //const ckb = new CKB("http://127.0.0.1:8114");
 
-    const txHashPrev = localStorage.getItem("outpointCounter");
+    const storageAvailable = isStorageAvailable();
+    let txHashPrev = "";
+
+    if (storageAvailable){
+      txHashPrev = localStorage.getItem("outpointCounter");
+    } else {
+      txHashPrev = window.__memoryStore["outpointCounter"];
+    }
+
 
     const counterCell = await ckb.rpc.getLiveCell(
       {
@@ -132,12 +140,25 @@ export default function SendCKB() {
         alert("TX Hash: " + txHash);
         setTxStatus("committed");
 
-        localStorage.setItem("outpointCounter", txHash);
-        localStorage.setItem("txstatus","committed");
+
+        if (storageAvailable) {
+          localStorage.setItem("outpointCounter", txHash);
+          localStorage.setItem("txstatus","committed");
+        } else {
+          window.__memoryStore = window.__memoryStore || {};
+          window.__memoryStore["outpointCounter"] = txHash;
+          window.__memoryStore["txstatus"] = "committed";
+        }
       
   } catch (error) {
+    const storageAvailable = isStorageAvailable();
     setTxStatus("rejected");
-    localStorage.setItem("txstatus","rejected");
+    if (storageAvailable) {
+        localStorage.setItem("txstatus","rejected");
+      } else {
+        window.__memoryStore = window.__memoryStore || {};
+          window.__memoryStore["txstatus"] = "rejected";
+      }
   }
         //console.log(getTxStatus());
   };
@@ -178,5 +199,16 @@ async function waitForCommit(txHash) {
     }
 
     await new Promise(r => setTimeout(r, 3000)); // Wait 3s
+  }
+}
+
+function isStorageAvailable() {
+  try {
+    const test = "__test__";
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    return true;
+  } catch {
+    return false;
   }
 }
