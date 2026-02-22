@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div style={{ padding: 20}}>
-      <h2>On-Chain Counter</h2>
+      <h2 className="Header">On-Chain Counter</h2>
 
       {!wallet && (
         <button onClick={open}>Connect Wallet</button>
@@ -31,18 +31,18 @@ function App() {
 
       {wallet && (
         <>
-          <p><b>Address:</b> {address}</p>
+          <p className="Par"><b>Address:</b> {address}</p>
           <CreateGenesisCell />
         </>
       )}
-      <p>Receiver CKB Address</p>
+      <p className="Par"><b>Receiver CKB Address</b></p>
       <input type="text" id="toAddress"  style={{ width: "500px" }} placeholder="type the recipient's address"/>
-      <p>Amount of CKBs</p>
+      <p className="Par"><b>Amount of CKBs</b></p>
       <input type="number" id="amount" placeholder="type the amount of ckb"/>
       <p><SendCKB /></p>
-      <p>Transaction Status: {status}</p>
+      <p className="Par"><b>Transaction Status: </b>{status}</p>
       <p><ShowCounter/></p>
-      <label id="onchainCounter"></label>
+      <label className="Par" id="onchainCounter"></label>
     </div>
   );
 }

@@ -51,6 +51,14 @@
 }
 
 .GenCell:hover {
-  background-color: green;
+  background-color: #FFFFF0;
+}
+
+.Par{
+  color: white; 
+}
+
+.Header {
+  color: white; 
 }
 

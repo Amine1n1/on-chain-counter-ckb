@@ -137,7 +137,7 @@ export default function SendCKB() {
         const stateTx = await waitForCommit(txHash);
 
         setTxHash(txHash);
-        alert("TX Hash: " + txHash);
+        alert("Transaction successful: " + txHash);
         setTxStatus("committed");
 
 
