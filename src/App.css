@@ -1,7 +1,9 @@
 #root {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  box-sizing: border-box;
   text-align: center;
 }
 
@@ -61,5 +63,29 @@
 .Header {
   color: white;
   font-family: "Times New Roman", Times, serif;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .card {
+    padding: 1.2em;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  input {
+    font-size: 16px;
+    padding: 12px;
+  }
 }
 

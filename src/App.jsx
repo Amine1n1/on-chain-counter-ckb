@@ -36,7 +36,7 @@ function App() {
         </>
       )}
       <p className="Par"><b>Receiver CKB Address</b></p>
-      <input type="text" id="toAddress"  style={{ width: "500px" }} placeholder="type the recipient's address"/>
+      <input type="text" className = "reCkbAddress" id="toAddress" placeholder="type the recipient's address"/>
       <p className="Par"><b>Amount of CKBs</b></p>
       <input type="number" id="amount" placeholder="type the amount of ckb"/>
       <p><SendCKB /></p>
