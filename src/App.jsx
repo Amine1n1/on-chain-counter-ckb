@@ -23,10 +23,10 @@ function App() {
 
   return (
     <div style={{ padding: 20}}>
-      <h2 className="Header">On-Chain Counter</h2>
+      <h1 className="Header">On-Chain Counter</h1>
 
       {!wallet && (
-        <button onClick={open}>Connect Wallet</button>
+        <button className="GenCell" onClick={open}>Connect Wallet</button>
       )}
 
       {wallet && (
