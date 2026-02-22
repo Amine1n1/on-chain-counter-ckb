@@ -53,6 +53,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 16px; /* verhindert iPhone-Zoom */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
