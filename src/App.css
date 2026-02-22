@@ -87,5 +87,16 @@
     font-size: 16px;
     padding: 12px;
   }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 }
 
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 10px 0;
+  word-wrap: break-word;
+}
